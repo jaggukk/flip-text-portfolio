@@ -160,14 +160,14 @@ function Portfolio() {
                 <div className="hidden font-mono text-[10px] text-muted-foreground lg:block">KANNUR, KERALA / 11.8745° N</div>
               </div>
 
-              <div className="relative z-10 my-auto grid grid-cols-1 items-start gap-6 py-8 md:grid-cols-[1.15fr_1fr] md:gap-14 md:py-12">
-                <div>
+              <div className="tilt-stage relative z-10 my-auto grid grid-cols-1 items-center gap-8 py-8 md:grid-cols-[1.1fr_1fr] md:gap-16 md:py-12">
+                <div className="tilt-topic border border-border bg-background/60 p-5 md:p-8">
                   <p key={`k-${active}`} className="content-enter mb-5 font-mono text-[10px] uppercase text-primary md:mb-8 md:text-xs">/ {chapter.kicker}</p>
-                  <h1 aria-label={chapter.title} className="max-w-[95%] font-mono text-[clamp(2.15rem,7vw,7.5rem)] font-bold uppercase leading-[1.08] text-foreground md:max-w-full">
+                  <h1 aria-label={chapter.title} className="max-w-[95%] font-mono text-[clamp(1.9rem,5.2vw,5.5rem)] font-bold uppercase leading-[1.08] text-foreground md:max-w-full">
                     <RollingText text={chapter.title} previous={previousChapter.title} version={version} />
                   </h1>
                 </div>
-                <div key={`d-${active}`} className="content-enter flex items-start gap-3 pt-1 md:gap-5 md:pt-3">
+                <div key={`d-${active}`} className="tilt-content content-enter flex items-start gap-3 border border-border bg-background/60 p-5 md:gap-5 md:p-8">
                   <span className="mt-1.5 h-px w-6 shrink-0 bg-primary md:w-10" />
                   <div className="min-w-0">
                     <p className="max-w-xl text-sm leading-relaxed text-foreground md:text-lg md:leading-relaxed">{chapter.description}</p>

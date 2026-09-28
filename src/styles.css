@@ -77,3 +77,13 @@
   .roll-track.is-rolling, .content-enter { animation-duration: .01ms; }
   .progress-bar { transition: none; }
 }
+/* Tilted panels (topic left, content right) */
+.tilt-stage { perspective: 1400px; }
+.tilt-topic, .tilt-content { transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@media (min-width: 768px) {
+  .tilt-topic { transform: rotate(-9deg); }
+  .tilt-content { transform: rotateY(-24deg) rotateZ(4deg) skewY(4deg); transform-origin: left center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tilt-topic, .tilt-content { transition: none; }
+}

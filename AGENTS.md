@@ -1,0 +1,2 @@
+- Keep the portfolio as one sticky viewport over a native scroll track; this preserves scroll accessibility while chapters replace content in place.
+- Keep résumé-derived chapter data in the home route and the original PDF as a CDN asset pointer; this preserves source fidelity and avoids committing the binary.

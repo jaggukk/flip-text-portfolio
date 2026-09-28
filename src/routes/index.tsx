@@ -129,7 +129,9 @@ function Portfolio() {
   }, []);
 
   const goTo = (index: number) => window.scrollTo({ top: index * window.innerHeight, behavior: "smooth" });
-  const chapter = chapters[active];
+  const chapter = chapters[active] ?? chapters[0];
+  const previousChapter = chapters[previous] ?? chapters[0];
+  if (!chapter || !previousChapter) return null;
 
   return (
     <main>
@@ -164,8 +166,8 @@ function Portfolio() {
 
               <div className="relative z-10 my-auto max-w-5xl py-8 md:py-12">
                 <p key={`k-${active}`} className="content-enter mb-5 font-mono text-[10px] uppercase text-primary md:mb-8 md:text-xs">/ {chapter.kicker}</p>
-                <h1 className="max-w-[95%] font-mono text-[clamp(2.15rem,7vw,7.5rem)] font-bold uppercase leading-[1.08] text-foreground md:max-w-[85%] lg:max-w-[90%]" style={{ letterSpacing: 0 }}>
-                  <RollingText text={chapter.title} previous={chapters[previous].title} version={version} />
+                <h1 aria-label={chapter.title} className="max-w-[95%] font-mono text-[clamp(2.15rem,7vw,7.5rem)] font-bold uppercase leading-[1.08] text-foreground md:max-w-[85%] lg:max-w-[90%]">
+                  <RollingText text={chapter.title} previous={previousChapter.title} version={version} />
                 </h1>
                 <div key={`d-${active}`} className="content-enter mt-6 flex items-start gap-3 md:mt-10 md:gap-5">
                   <span className="mt-1.5 h-px w-6 shrink-0 bg-primary md:w-10" />

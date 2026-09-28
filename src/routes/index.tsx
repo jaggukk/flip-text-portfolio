@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowDownRight, ArrowUpRight, Download, Github, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mechanism from "@/assets/odometer-mechanism.jpg";
 import resume from "@/assets/Jagan_KK_Resume.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -156,27 +155,28 @@ function Portfolio() {
             </aside>
 
             <section className="relative flex min-w-0 flex-1 flex-col justify-between overflow-hidden px-5 pb-6 pt-8 md:px-10 md:pb-10 md:pt-12 lg:px-16 lg:pt-16">
-              <div className="pointer-events-none absolute inset-y-0 right-[-28%] w-[78%] opacity-25 md:right-[-5%] md:w-[60%] md:opacity-50 lg:opacity-70">
-                <img src={mechanism} alt="Mechanical odometer rollers" width={960} height={1280} className="mechanism-image h-full w-full object-cover object-center" />
-              </div>
               <div className="relative z-10 flex items-start justify-between gap-4">
                 <div className="font-mono text-[10px] uppercase text-primary md:text-xs"><span className="mr-3 text-muted-foreground">[{chapter.number}]</span>{chapter.label}</div>
                 <div className="hidden font-mono text-[10px] text-muted-foreground lg:block">KANNUR, KERALA / 11.8745° N</div>
               </div>
 
-              <div className="relative z-10 my-auto max-w-5xl py-8 md:py-12">
-                <p key={`k-${active}`} className="content-enter mb-5 font-mono text-[10px] uppercase text-primary md:mb-8 md:text-xs">/ {chapter.kicker}</p>
-                <h1 aria-label={chapter.title} className="max-w-[95%] font-mono text-[clamp(2.15rem,7vw,7.5rem)] font-bold uppercase leading-[1.08] text-foreground md:max-w-[85%] lg:max-w-[90%]">
-                  <RollingText text={chapter.title} previous={previousChapter.title} version={version} />
-                </h1>
-                <div key={`d-${active}`} className="content-enter mt-6 flex items-start gap-3 md:mt-10 md:gap-5">
-                  <span className="mt-1.5 h-px w-6 shrink-0 bg-primary md:w-10" />
-                  <p className="max-w-xl text-sm leading-relaxed text-foreground md:text-lg md:leading-relaxed">{chapter.description}</p>
+              <div className="relative z-10 my-auto grid grid-cols-1 items-start gap-6 py-8 md:grid-cols-[1.15fr_1fr] md:gap-14 md:py-12">
+                <div>
+                  <p key={`k-${active}`} className="content-enter mb-5 font-mono text-[10px] uppercase text-primary md:mb-8 md:text-xs">/ {chapter.kicker}</p>
+                  <h1 aria-label={chapter.title} className="max-w-[95%] font-mono text-[clamp(2.15rem,7vw,7.5rem)] font-bold uppercase leading-[1.08] text-foreground md:max-w-full">
+                    <RollingText text={chapter.title} previous={previousChapter.title} version={version} />
+                  </h1>
                 </div>
-                {active === chapters.length - 1 && <div key="contact-actions" className="content-enter mt-7 flex flex-wrap gap-5 pl-9 md:pl-15">
-                  <a href="mailto:jagsonjob@gmail.com" className="inline-flex items-center gap-2 border-b border-primary pb-1 font-mono text-xs text-primary hover:text-foreground"><Mail size={15} /> EMAIL ME <ArrowUpRight size={15} /></a>
-                  <a href="https://github.com/jagan-kk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-border pb-1 font-mono text-xs text-foreground hover:text-primary"><Github size={15} /> GITHUB <ArrowUpRight size={15} /></a>
-                </div>}
+                <div key={`d-${active}`} className="content-enter flex items-start gap-3 pt-1 md:gap-5 md:pt-3">
+                  <span className="mt-1.5 h-px w-6 shrink-0 bg-primary md:w-10" />
+                  <div className="min-w-0">
+                    <p className="max-w-xl text-sm leading-relaxed text-foreground md:text-lg md:leading-relaxed">{chapter.description}</p>
+                    {active === chapters.length - 1 && <div key="contact-actions" className="mt-7 flex flex-wrap gap-5">
+                      <a href="mailto:jagsonjob@gmail.com" className="inline-flex items-center gap-2 border-b border-primary pb-1 font-mono text-xs text-primary hover:text-foreground"><Mail size={15} /> EMAIL ME <ArrowUpRight size={15} /></a>
+                      <a href="https://github.com/jagan-kk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-border pb-1 font-mono text-xs text-foreground hover:text-primary"><Github size={15} /> GITHUB <ArrowUpRight size={15} /></a>
+                    </div>}
+                  </div>
+                </div>
               </div>
 
               <div className="relative z-10 flex items-end justify-between gap-4 border-t border-border pt-5 md:pt-7">
